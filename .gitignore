@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Vercel local config (project ID等・公開リポでも非機密だが慣例として除外)
+.vercel/
+
+# OS metadata
+.DS_Store
+Thumbs.db

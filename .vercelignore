@@ -1,0 +1,38 @@
+# AI Kit LP — Vercel deploy ignore list
+# 本番配信から除外するファイル/ディレクトリ
+# 作成: 2026-05-06 梶原CTO
+# 関連: 20260506_手順_Vercel本番デプロイ_AI_Kit_LP_梶原.md §9
+
+# 過去スナップショット（佐川睦男5/6報告書 注意点）
+_archive/
+履歴_lp_index/
+履歴_lp_style/
+
+# 内部運用ドキュメント（本番不要）
+README.md
+assets/README.md
+assets/画像メタデータ.md
+
+# raw 画像（最適化前の巨大ファイル・本番未使用）
+assets/hero_main_raw.png
+assets/section_experience_raw.png
+
+# OS / エディタの一時ファイル
+.DS_Store
+*.bak
+*.tmp
+*.swp
+Thumbs.db
+
+# 依存・ビルド成果物（本LPは静的HTMLのため通常存在しないが防御的に）
+node_modules/
+dist/
+build/
+.next/
+.vercel/
+
+# 機密（万一の混入防止・絶対遵守2）
+.env
+.env.*
+*credentials*
+*secret*

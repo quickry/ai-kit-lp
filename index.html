@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AIを学ぶ時間を、使う時間に変える。AI社員・業務テンプレ・自動化フローを一式ダウンロードできる、ダウンロード型のAI業務環境キット。Claude Code対応。運営：Quickry株式会社。"
+    />
+    <meta
+      name="keywords"
+      content="AI業務環境, AI Kit, Claude Code, AI社員, 中小企業, 自動化, Quickry"
+    />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Quickry AI Kit — AIを学ぶ時間を、使う時間に変える。" />
+    <meta
+      property="og:description"
+      content="AI社員・業務テンプレ・自動化フローを一式ダウンロード。経営者の現場が、今日から動く。ダウンロード型のAI業務環境キット。"
+    />
+    <meta property="og:site_name" content="Quickry AI Kit" />
+    <meta property="og:image" content="/assets/ogp_1200x630.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Quickry AI Kit — AIを学ぶ時間を、使う時間に変える。" />
+    <meta name="twitter:description" content="AI社員・業務テンプレ・自動化フローを一式ダウンロード。経営者の現場が、今日から動く。" />
+    <meta name="twitter:image" content="/assets/ogp_1200x630.jpg" />
+
+    <!-- Canonical URL（坪井CEO承認後 ai-kit.quickry.jp に確定する想定） -->
+    <link rel="canonical" href="https://ai-kit.quickry.jp/" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Quickry AI Kit",
+        "description": "AIを学ぶ時間を、使う時間に変える。AI社員・業務テンプレ・自動化フローを一式ダウンロードできる、ダウンロード型のAI業務環境キット。",
+        "brand": {
+          "@type": "Brand",
+          "name": "Quickry"
+        },
+        "image": "/assets/ogp_1200x630.jpg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Tier 1 セルフ構築プレイブック",
+            "price": "49800",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tier 2 リモート初期構築パック",
+            "price": "298000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tier 3 3ヶ月フル伴走パック",
+            "price": "980000",
+            "priceCurrency": "JPY"
+          }
+        ]
+      }
+    </script>
+
+    <title>Quickry AI Kit — AIを学ぶ時間を、使う時間に変える。</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9F9V0YL1FL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9F9V0YL1FL');
+      // 明示的 page_view（拡張計測機能で自動送信されるが DebugView 動作確認のため明示）
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname
+      });
+    </script>
+  </head>
+  <body>
+    <!-- ======================= Header ======================= -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <a href="#" class="nav-brand">
+            <span class="nav-brand-mark">Q</span>
+            <span>Quickry AI Kit</span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="#problem">こんな方に</a></li>
+            <li><a href="#overview">できること</a></li>
+            <li><a href="#includes">同梱内容</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#why">Quickryとは</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="legal.html">特商法</a></li>
+          </ul>
+          <a href="#pricing" class="nav-cta">同梱内容を見る</a>
+          <button class="nav-toggle" aria-label="メニューを開く">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ======================= Hero ======================= -->
+    <!-- D案 2026-05-05 里見§3-3: フル幅画像背景 + 右overlayコピー帯
+         - .hero-bg-picture（absolute全面・picture要素）
+         - .hero-inner-overlay（右寄せ max-width 520px）
+         - モバイルは縦並び（画像上・コピー下） -->
+    <section class="hero">
+      <picture class="hero-bg-picture">
+        <!-- モバイル WebP（最優先・帯域節約） -->
+        <source
+          media="(max-width: 768px)"
+          srcset="assets/hero_main_mobile_750x420.webp"
+          type="image/webp"
+        />
+        <!-- モバイル JPEG（WebP非対応モバイルブラウザ向け） -->
+        <source
+          media="(max-width: 768px)"
+          srcset="assets/hero_main_mobile_750x420.jpg"
+          type="image/jpeg"
+        />
+        <!-- デスクトップ WebP 優先 -->
+        <source
+          srcset="assets/hero_main_1920x1080.webp"
+          type="image/webp"
+        />
+        <!-- フォールバック JPEG（デスクトップ・WebP非対応） -->
+        <img
+          src="assets/hero_main_1920x1080.jpg"
+          alt="経営者を取り囲む7名のAI社員ミニチュア・Quickry AI Kit"
+          width="1920"
+          height="1080"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="hero-inner-overlay">
+        <span class="eyebrow">Quickry AI Kit — ダウンロード型 AI業務環境キット</span>
+        <h1 class="hero-title">
+          <span class="hero-title-line">AIを<span class="accent">"学ぶ時間"</span>を、</span>
+          <span class="hero-title-line"><span class="accent">"使う時間"</span>に変える。</span>
+        </h1>
+        <p class="hero-sub">
+          AI社員・業務テンプレ・自動化フローを一式ダウンロード。<br />
+          経営者の現場が、今日から動く。
+        </p>
+        <p class="hero-desc">
+          研修も、動画学習も、AI専任者の採用も。<br />
+          全部スキップして、設計済みのAI業務環境から始められます。<br />
+          基本キット＋拡張パッケージで、あなたの会社に合わせて広げられます。
+        </p>
+        <div class="hero-cta-group">
+          <a href="#includes" class="btn btn-primary btn-lg">同梱内容を見る</a>
+          <a href="#contact" data-lead-tier="demo" class="btn btn-secondary btn-lg">無料デモを予約する</a>
+        </div>
+        <div class="hero-badges">
+          <span>ダウンロード型</span>
+          <span>導入サポート付き</span>
+          <span>運営：Quickry株式会社</span>
+        </div>
+        <p class="hero-company">
+          運営：Quickry株式会社（東京都・代表 坪井勇介）<br />
+          <span class="alpha-label">β版（早期提供フェーズ）として提供中・FAQで詳細をご確認ください</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= Price Quick View (FV直下・即時開示) ======================= -->
+    <section class="price-quick">
+      <div class="container">
+        <div class="price-quick-inner">
+          <div class="price-quick-head">
+            <span class="eyebrow">Pricing — 価格即時開示</span>
+            <h2>料金は3プラン。隠しません。</h2>
+          </div>
+          <div class="price-quick-grid">
+            <div class="price-quick-item">
+              <div class="pq-tier">Tier 1</div>
+              <div class="pq-name">セルフ構築プレイブック</div>
+              <div class="pq-amount">¥49,800<span class="pq-unit">（税込・買い切り）</span></div>
+            </div>
+            <div class="price-quick-item">
+              <div class="pq-tier">Tier 2</div>
+              <div class="pq-name">リモート初期構築パック</div>
+              <div class="pq-amount">¥298,000<span class="pq-unit">（税込・一括）</span></div>
+            </div>
+            <div class="price-quick-item">
+              <div class="pq-tier">Tier 3</div>
+              <div class="pq-name">3ヶ月フル伴走パック</div>
+              <div class="pq-amount">¥980,000<span class="pq-unit">〜 ¥1,500,000（税込・個別見積）</span></div>
+            </div>
+          </div>
+          <p class="price-quick-note">
+            詳細は<a href="#pricing">料金プランセクション</a>／<a href="legal.html">特定商取引法に基づく表記</a>をご確認ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Demo + Includes Quick View（中身が見える素材・FV直下固定） ======================= -->
+    <section class="demo-quick">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">3分でわかる中身</span>
+          <h2 class="section-title">中身が見えてから、買えます。</h2>
+          <p class="section-subtitle">
+            購入前に、同梱物の中身と、実際に動いている画面を確認できます。
+          </p>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-video">
+            <div class="demo-video-wrap">
+              <!-- 3分デモ動画埋め込み枠（YouTube等） -->
+              <div class="demo-video-placeholder">
+                <span class="demo-video-label">3分デモ動画</span>
+                <span class="demo-video-sub">準備中（5/8公開予定）</span>
+              </div>
+            </div>
+            <p class="demo-video-caption">
+              Claude Code上で実際にAI Kitを起動し、AI社員が稼働する様子を3分で確認できます。
+            </p>
+          </div>
+          <div class="demo-list">
+            <h4>同梱物リスト（Tier 1の場合）</h4>
+            <ul>
+              <li>AI社員テンプレ8役（CEO/CAIO/CTO/CMO/CSO/CFO/COO/法務）</li>
+              <li>業務テンプレ（朝刊・メール下書き・タスク管理ほか）</li>
+              <li>自動化フロー（Gmail→AI下書き→Chat通知 等）</li>
+              <li>CLAUDE.md階層・MEMORY.mdシステム</li>
+              <li>インストール動画30本</li>
+              <li>初期化コマンド <code>/quickry-init</code></li>
+              <li>導入ガイド・FAQ・LICENSE.md</li>
+            </ul>
+            <a href="#includes" class="btn btn-ghost">同梱物の詳細を見る →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Problem Checklist ======================= -->
+    <section class="section section-soft" id="problem">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Who it's for</span>
+          <h2 class="section-title">ひとつでも当てはまったら、ここからが本題です。</h2>
+          <p class="section-subtitle">
+            下のチェックリスト、ひとつでも当てはまったらこのキットの守備範囲です。
+          </p>
+        </div>
+        <div class="checklist">
+          <div class="check-item">
+            <span class="box"></span>
+            <span>社員数が少なく、AI業務体制を組む余裕がない</span>
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span
+              >ChatGPTは使っているが、業務が自動化できている実感がない</span
+            >
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span>経営判断を一人で抱え込んでいる</span>
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span>Notion・Gmail・Slackがバラバラで横串が見えない</span>
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span>毎朝のタスク整理・メール対応で時間を奪われている</span>
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span>AI導入を検討したが何から始めればいいかわからない</span>
+          </div>
+          <div class="check-item">
+            <span class="box"></span>
+            <span>数万円で試せる実用的なAI業務環境があれば使いたい</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Overview / Before-After ======================= -->
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What it does</span>
+          <h2 class="section-title">経営者が判断に集中できる構成にしました。</h2>
+          <p class="section-subtitle">
+            業務のボトルネックに、AI社員をそれぞれ配置しています。経営者は判断とクリエイティブに専念できます。
+          </p>
+        </div>
+        <div class="ba-grid">
+          <div class="ba-card before">
+            <span class="ba-label">Before — 導入前</span>
+            <ul class="ba-list">
+              <li>社長がすべての判断をする</li>
+              <li>メールは自分で読んで自分で返す</li>
+              <li>タスクは頭の中にある</li>
+              <li>月末に焦って経理処理</li>
+              <li>重複ファイル・古いフォルダが散乱</li>
+            </ul>
+          </div>
+          <div class="ba-card after">
+            <span class="ba-label">After — 導入後</span>
+            <ul class="ba-list">
+              <li>AI CEOが一次判断、重要事項だけ社長に上げる</li>
+              <li>受信メールはAIが下書きを作ってChatに通知</li>
+              <li>毎朝「今日のタスク・期限・KPI」がChatに届く</li>
+              <li>CFOペルソナが月次PLの下地を自動生成</li>
+              <li>命名規則違反・重複ファイルは自動警告</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 72px">
+          <div class="section-head" style="margin-bottom: 32px">
+            <span class="eyebrow">How to install</span>
+            <h2 class="section-title">15分で立ち上がります。手順は4つです。</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <h4>Claude Code導入</h4>
+              <p>Anthropic製のAI開発ツールをPCにインストール（動画ガイド付き）</p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <h4>Zipを解凍</h4>
+              <p>ダウンロードしたパッケージを作業ディレクトリに配置</p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <h4>初期化コマンド</h4>
+              <p>ターミナルで <code>/quickry-init</code> と入力</p>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <h4>質問に答えるだけ</h4>
+              <p>会社情報・業種・ツールを質問。あなた専用のAI業務環境が自動生成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Includes ======================= -->
+    <section class="section section-soft" id="includes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What's included</span>
+          <h2 class="section-title">同梱物のすべてを、見せます。</h2>
+          <p class="section-subtitle">
+            Quickryが2ヶ月かけて社内で動かしている資産を、そのままパッケージにしました。
+          </p>
+        </div>
+        <div class="includes-grid">
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>AI社員テンプレート</h4>
+            <p>CEO / CAIO / CTO / CMO / CSO / CFO / COO / 法務 の8役を、業種（SaaS・小売・飲食・士業・製造・不動産・医療・教育）に応じて自動調整。</p>
+          </div>
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>自動化フローテンプレート</h4>
+            <ul>
+              <li>Gmail受信 → AI下書き → Chat通知</li>
+              <li>Notion朝刊（タスク・期限・KPI配信）</li>
+              <li>ファイル命名規則の自動強制</li>
+              <li>重複ファイル検出・archive判定</li>
+            </ul>
+          </div>
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h4>業務テンプレ＆ドキュメント基盤</h4>
+            <ul>
+              <li>CLAUDE.md階層（全社共通→部門別）</li>
+              <li>MEMORY.mdシステム（AIが学習し続ける）</li>
+              <li>法定保存ルール（税法7年・登記永久・契約+5年）</li>
+            </ul>
+          </div>
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h4>インストール動画30本</h4>
+            <p>Claude Code導入・初期化手順・各AI社員の使い方・自動化の設定・トラブルシューティングをステップバイステップで。</p>
+          </div>
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14a3 3 0 0 1 3 3v2.5a6.5 6.5 0 0 1-13 0V8z"/></svg>
+            </div>
+            <h4>外部ツール連携</h4>
+            <ul>
+              <li>Google Workspace（Gmail / Drive / Calendar）</li>
+              <li>Notion・Slack・Google Chat</li>
+              <li>MCP経由で安全に接続</li>
+            </ul>
+          </div>
+          <div class="include-card">
+            <div class="include-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h4>ライセンス</h4>
+            <ul>
+              <li>自社内無制限利用</li>
+              <li>改変OK</li>
+              <li>再配布・転売NG（LICENSE.md参照）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Pricing ======================= -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Pricing</span>
+          <h2 class="section-title">組織規模に合わせて、3プラン用意しました。</h2>
+          <p class="section-subtitle">
+            セルフ導入から、フル伴走まで。あなたの組織規模と状況に合わせて選べます。
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <!-- Tier 1 -->
+          <div class="price-card">
+            <div class="price-tier">Tier 1</div>
+            <div class="price-name">セルフ構築プレイブック</div>
+            <div class="price-amount">
+              <span class="num">¥49,800</span>
+              <span class="unit">買い切り</span>
+            </div>
+            <div class="price-note">税込・Stripe決済</div>
+            <ul class="price-features">
+              <li>スターターZip（全テンプレ）</li>
+              <li>インストール動画30本</li>
+              <li>自動構築プロンプト <code>/quickry-init</code></li>
+              <li>導入ガイド・FAQ</li>
+              <li>Discord有料コミュニティ（月¥2,980・任意加入）</li>
+            </ul>
+            <div class="price-target">
+              対象: エンジニア素養あり / 1〜10名規模
+            </div>
+            <p class="price-sla-note" style="font-size: 12px; color: #666; line-height: 1.6; margin: 8px 0 12px;">
+              ※ 配布物（zipファイル）は、決済確認後、原則翌営業日中にメールにてダウンロードリンクをお送りします。
+            </p>
+            <a
+              href="#contact"
+              data-stripe-tier="1"
+              class="btn btn-primary btn-block"
+              >キットを導入する</a
+            >
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="price-card featured">
+            <div class="price-tier">Tier 2</div>
+            <div class="price-name">リモート初期構築パック</div>
+            <div class="price-amount">
+              <span class="num">¥298,000</span>
+              <span class="unit">一括</span>
+            </div>
+            <ul class="price-features">
+              <li>Tier 1の全内容を含む</li>
+              <li>3〜4時間のリモート構築セッション</li>
+              <li>Quickryの十兵衛＋AI社員が伴走</li>
+              <li>代表・坪井勇介も挨拶参加</li>
+              <li>Notion初期ワークスペース構築</li>
+              <li>MCP / Gmail / Slack 各種連携設定</li>
+              <li>CLAUDE.md階層の業種特化カスタム</li>
+              <li>30日間 Slack個別サポート</li>
+            </ul>
+            <div class="price-target">
+              対象: 非エンジニア経営者 / 10〜50名規模
+            </div>
+            <a href="#contact" data-lead-tier="2" class="btn btn-primary btn-block">相談する</a>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="price-card">
+            <div class="price-tier">Tier 3</div>
+            <div class="price-name">3ヶ月フル伴走パック</div>
+            <div class="price-amount">
+              <span class="num">¥980,000</span>
+              <span class="unit">〜 ¥1,500,000</span>
+            </div>
+            <div class="price-note">個別見積・契約後お支払い</div>
+            <ul class="price-features">
+              <li>カスタムCLAUDE.md階層設計</li>
+              <li>業種特化AI社員構築</li>
+              <li>主要業務ワークフロー自動化 3本</li>
+              <li>カスタムSkills・Hook開発</li>
+              <li>月2回レビュー（坪井勇介同席）</li>
+              <li>3ヶ月後のバージョンアップ対応</li>
+            </ul>
+            <div class="price-target">
+              対象: 中小企業オーナー / 本気でAI業務体制を組みたい層
+            </div>
+            <a href="#contact" data-lead-tier="3" class="btn btn-primary btn-block">相談する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Why Quickry ======================= -->
+    <section class="section section-soft" id="why">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Quickry</span>
+          <h2 class="section-title">自分たちが、毎日使っているものを配っています。</h2>
+          <p class="section-subtitle">
+            「AI社員と一緒に回る経営」を、自社の現場で日々検証しています。
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-num">8</div>
+            <div class="stat-label">常時稼働AI社員</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">実メンバー</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2<span style="font-size: 20px">ヶ月</span></div>
+            <div class="stat-label">Claude Code実装歴</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2<span style="font-size: 20px">製品</span></div>
+            <div class="stat-label">自社プロダクト運営中</div>
+          </div>
+        </div>
+
+        <div class="owner-card">
+          <img class="owner-avatar" src="assets/owner_tsuboi_160x160.png" alt="坪井 勇介（Quickry株式会社 代表取締役）" width="160" height="160" loading="lazy" decoding="async" />
+          <div class="owner-meta">
+            <h4>坪井 勇介</h4>
+            <div class="role">Quickry株式会社 代表取締役</div>
+            <ul>
+              <li>非エンジニア出身の経営者</li>
+              <li>「AI社員と一緒に会社を回す」実践者</li>
+              <li>事業: Quickry Book（予約枠トレード）／Quickry（整理券SaaS）</li>
+              <li>Kindle出版予定『AI社員5人で経営してみた3ヶ月のリアル』</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Experience（体験ビジュアル） ======================= -->
+    <!-- D案 v4.1 2026-05-05 里見§5: フル幅画像背景 + 上部overlayコピー帯（坪井FB#3対応）
+         - .experience-bg-picture（absolute全面・picture要素）
+         - .experience-inner-overlay（上寄せ・左揃え・max-width 760px）
+         - モバイルは縦並び（コピー上・画像下） -->
+    <section class="section-experience" id="experience">
+      <picture class="experience-bg-picture">
+        <source
+          srcset="assets/section_experience_1600x900.webp"
+          type="image/webp"
+        />
+        <img
+          src="assets/section_experience_1600x900.jpg"
+          alt="経営者・AI社員4名・ダッシュボード5枚通知・Quickry AI Kit体験イメージ"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <div class="experience-inner-overlay">
+        <span class="eyebrow">Experience — 導入後の体験イメージ</span>
+        <h2 class="section-title">経営者の隣で、AI社員4名がリアルタイムに動きます。</h2>
+        <p class="section-subtitle">
+          Chat 通知・タスク・KPI ダッシュボード・メール下書き・期限アラート — 5枚の通知が1日で動く現場です。
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= Future ======================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">After 3 months</span>
+          <h2 class="section-title">3ヶ月後、あなたの会社はこうなります</h2>
+        </div>
+        <div class="future-list">
+          <div class="future-card">
+            <div class="num">01</div>
+            毎朝のタスク整理は「朝刊」をChatで見るだけになる。
+          </div>
+          <div class="future-card">
+            <div class="num">02</div>
+            メール対応の多くがAI下書きからスタートに変わる。
+          </div>
+          <div class="future-card">
+            <div class="num">03</div>
+            経営判断に迷ったらAI
+            CEOに相談、即座に選択肢と推奨案が出る。
+          </div>
+          <div class="future-card">
+            <div class="num">04</div>
+            月次経営会議の資料はCFOペルソナが自動生成の下地を作る。
+          </div>
+          <div class="future-card">
+            <div class="num">05</div>
+            社員は判断業務ではなく、創造業務に集中できる。
+          </div>
+          <div class="future-card">
+            <div class="num">06</div>
+            これが、Quickryが既に実現している働き方です。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FAQ ======================= -->
+    <section class="section section-soft" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>AIを使ったことがなくても大丈夫ですか？</summary>
+            <div class="faq-body">
+              不要です。ただしターミナルで1〜2行のコマンドを打てる必要があります（ステップバイステップの動画付き）。不安な方は
+              Tier 2（リモート構築代行）をおすすめします。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>ChatGPTで足りないんでしょうか？</summary>
+            <div class="faq-body">
+              GPTsは「便利なチャット」です。Claude Codeは「ファイル操作・コマンド実行・外部連携を自動で行うAIエージェント基盤」です。本物の業務自動化はClaude
+              Codeでないと実現できません。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Claude Codeの料金は別にかかりますか？</summary>
+            <div class="faq-body">
+              Claude Code の利用料は月額$20〜（約¥3,000〜）です。業務利用なら月$100程度が目安です。本パッケージの代金とは別で発生します。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>社内データがAIに学習されないか、心配です。</summary>
+            <div class="faq-body">
+              Claude Codeは学習に使用しないデータポリシーを選択できます。また本パッケージはあなたのPC内でローカルに動作するため、データはあなたの管理下にあります。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>ChatGPTやCodexと一緒に使ってもいいですか？</summary>
+            <div class="faq-body">
+              Quickry AI Kit は <strong>Claude Code を公式実行環境</strong>としています。他AIツール（ChatGPT、Codex、Cursor 等）との併用は技術的に可能なケースもありますが、<strong>公式サポートの対象外</strong>となります。動作差分・バグ・データ不整合のリスクは利用者にてご判断ください。<br />
+              Tier 3（3ヶ月伴走）をご契約の方は、併用ワークフローの設計をカスタムで相談可能です。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Notionは持っていないのですが、それでも使えますか？</summary>
+            <div class="faq-body">
+              使えます。Notion連携は任意機能です。使わない場合はMCP連携設定をスキップできます。Google WorkspaceやSlack連携も個別に選べます。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>後からTier 2 やTier 3 に変更できますか？</summary>
+            <div class="faq-body">
+              Tier 1購入後にTier 2へアップグレードする場合は差額決済のみ。Tier 2/Tier 3 の解約条件は個別契約書に準じます。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>返金はできますか？</summary>
+            <div class="faq-body">
+              デジタルコンテンツの性質上、購入後のご返金には原則対応しておりません。Tier 2・Tier 3 は契約前に十分にご相談のうえ、ご検討ください。Tier 1 は購入前に商品仕様書・FAQ・導入動画のサンプルをご確認いただけます。
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>購入後、どのくらいで配布物を受け取れますか？</summary>
+            <div class="faq-body">
+              <p>ご決済完了後、当社よりご登録メールアドレス宛にダウンロードリンクをお送りします（原則翌営業日中・営業日カウント基準）。リンク有効期限は30日間です。</p>
+              <p>営業日とは、当社所定の平日（土日祝日・年末年始を除く）を指します。金曜・祝日前のご決済の場合、翌営業日扱いとなる点ご了承ください。</p>
+              <p>万一翌営業日を過ぎてもメールが届かない場合は、迷惑メールフォルダをご確認のうえ、<a href="mailto:support@quickry.jp">support@quickry.jp</a> までお問い合わせください。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>「β版（早期提供フェーズ）」って、どういうことですか？</summary>
+            <div class="faq-body">
+              <p>Quickry AI Kit は現在「β版（早期提供フェーズ）」として提供しています。配布物（LICENSE・特定商取引法に基づく表記・プライバシーポリシー等）は当社内で精査済みですが、外部弁護士による正式レビューはローンチ後に順次実施・反映してまいります。</p>
+              <p><strong>既存ご利用者様への3つのお約束:</strong></p>
+              <ol>
+                <li>責任上限額の引き下げは適用しません</li>
+                <li>返金・解約条件の不利益変更は適用しません</li>
+                <li>万一サービス提供を停止する場合は、日割り返金または相当する代替提供をお約束します</li>
+              </ol>
+              <p>外部弁護士レビューにより重要な変更が生じた場合は、事前にメールでご案内したうえで新版を提供します。β版期間の目安: 2026年6月-7月。詳細は support@quickry.jp までお問い合わせください。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= β版告知（フッター手前・購入ボタン直前） ======================= -->
+    <section class="section section-soft" id="beta-notice">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Important</span>
+          <h2 class="section-title">ご購入前にお知らせ：β版（早期提供フェーズ）について</h2>
+        </div>
+        <div class="beta-notice-body">
+          <p>
+            Quickry AI Kit は現在「β版（早期提供フェーズ）」として提供しています。配布物（LICENSE・特定商取引法に基づく表記・プライバシーポリシー・SLA方針等）は当社内で精査のうえ提供しており、外部弁護士による正式レビューはローンチ後に順次実施・反映してまいります。
+          </p>
+          <h3>既存ご利用者様への3つのお約束</h3>
+          <ol>
+            <li><strong>責任上限額の引き下げは適用しません</strong> — レビュー反映で条件が悪化することはありません</li>
+            <li><strong>返金・解約条件の不利益変更は適用しません</strong> — ご購入時点の条件を維持します</li>
+            <li><strong>万一サービス提供を停止する場合は日割り返金または相当する代替提供をお約束します</strong></li>
+          </ol>
+          <p>
+            外部弁護士レビューにより重要な変更が生じた場合は、<strong>事前にメールでご案内</strong>したうえで新版を提供いたします。詳細は<a href="#faq">FAQ</a>または<a href="mailto:support@quickry.jp">support@quickry.jp</a>までお問い合わせください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Final CTA ======================= -->
+    <section class="final-cta" id="contact">
+      <div class="container">
+        <h2>AIに判断と実行を任せて、<br />あなたは方向性とクリエイティブに集中する。</h2>
+        <p>
+          Quickryが2ヶ月で実装したものを、<br />そのまま受け取れます。次はあなたの番です。
+        </p>
+        <div class="final-cta-buttons">
+          <a
+            href="#"
+            data-stripe-tier="1"
+            class="btn btn-primary btn-lg"
+            >Tier 1 を購入する</a
+          >
+          <a href="mailto:support@quickry.jp?subject=Quickry AI Kit Tier 2 相談" data-lead-tier="2" class="btn btn-secondary btn-lg"
+            >Tier 2 を相談する</a
+          >
+          <a href="mailto:support@quickry.jp?subject=Quickry AI Kit 資料請求" data-lead-tier="resource" class="btn btn-ghost btn-lg"
+            >資料を請求する</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Footer ======================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-col footer-brand">
+            <div class="nav-brand">
+              <span class="nav-brand-mark">Q</span>
+              <span>Quickry AI Kit</span>
+            </div>
+            <p>Quickryが自社で動かしているAI業務環境を、そのままお届けしています。</p>
+          </div>
+          <div class="footer-col">
+            <h5>プロダクト</h5>
+            <ul>
+              <li><a href="#overview">できること</a></li>
+              <li><a href="#includes">同梱内容</a></li>
+              <li><a href="#pricing">料金プラン</a></li>
+              <li><a href="#faq">よくある質問</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>運営</h5>
+            <ul>
+              <li><a href="https://quickry.jp" target="_blank" rel="noopener">Quickry株式会社</a></li>
+              <li><a href="mailto:support@quickry.jp">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>法的情報</h5>
+            <ul>
+              <li><a href="legal.html">特定商取引法に基づく表記</a></li>
+              <li><a href="privacy.html">プライバシーポリシー</a></li>
+              <li><a href="#">ライセンス条項（準備中）</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copy">
+          © 2026 Quickry株式会社. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Nav toggle (mobile)
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          if (navLinks.style.display === "flex") {
+            navLinks.style.display = "";
+          } else {
+            navLinks.style.display = "flex";
+            navLinks.style.position = "absolute";
+            navLinks.style.top = "64px";
+            navLinks.style.left = "0";
+            navLinks.style.right = "0";
+            navLinks.style.flexDirection = "column";
+            navLinks.style.background = "var(--color-bg-soft)";
+            navLinks.style.color = "var(--color-text)";
+            navLinks.style.padding = "20px";
+            navLinks.style.borderBottom = "1px solid var(--color-border)";
+            navLinks.style.gap = "14px";
+          }
+        });
+      }
+
+      // Stripe CTA placeholder — wire to Stripe Checkout once price ID is set
+      // GA4 begin_checkout イベントは Stripe 配線前から先行発火（山田担当の Stripe 本配線は別タスク）
+      const TIER_PRICE_JPY = { "1": 49800, "2": 298000, "3": 980000 };
+      document.querySelectorAll("[data-stripe-tier]").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          const tier = el.dataset.stripeTier;
+          const price = TIER_PRICE_JPY[tier] || 0;
+          // GA4: begin_checkout イベント発火
+          if (typeof gtag === "function") {
+            gtag("event", "begin_checkout", {
+              currency: "JPY",
+              value: price,
+              items: [
+                {
+                  item_id: `ai_kit_tier${tier}`,
+                  item_name: `Quickry AI Kit Tier ${tier}`,
+                  price: price,
+                  quantity: 1
+                }
+              ]
+            });
+          }
+          // TODO: Stripe Checkout Session URL をここに差し込む
+          // window.location.href = `https://buy.stripe.com/xxxxx`;
+          if (!el.dataset.stripeReady) {
+            e.preventDefault();
+            alert(
+              "Stripe決済リンクは準備中です。support@quickry.jp までお問い合わせください。"
+            );
+          }
+        });
+      });
+
+      // GA4: generate_lead イベント発火（Tier 2/3 相談・無料デモ・資料請求の問合せCTA計測）
+      // mailto:遷移を阻害しないよう preventDefault しない・gtag.js非読込み環境でも安全に動作
+      document.querySelectorAll("[data-lead-tier]").forEach((el) => {
+        el.addEventListener("click", () => {
+          const leadTier = el.dataset.leadTier; // "2" | "3" | "demo" | "resource"
+          if (typeof gtag === "function") {
+            gtag("event", "generate_lead", {
+              lead_type: leadTier,
+              cta_label: el.textContent.trim()
+            });
+          }
+        });
+      });
+
+      // Fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document
+        .querySelectorAll(".section, .section-experience, .hero-inner-overlay, .experience-inner-overlay, .price-card, .include-card, .step, .check-item, .future-card, .stat")
+        .forEach((el) => {
+          el.classList.add("fade-in");
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>

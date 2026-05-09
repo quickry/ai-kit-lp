@@ -813,26 +813,34 @@
     </footer>
 
     <script>
-      // Nav toggle (mobile)
+      // Nav toggle (mobile) — 2026-05-09 佐川睦男 クラスベースに改修
+      // - inline style直書き → CSSクラス制御（.nav-links.is-open）
+      // - aria-expanded 同期・aria-label切替（a11y）
+      // - メニュー内リンクtap時に自動クローズ
+      // - ESCキーで閉じる
       const navToggle = document.querySelector(".nav-toggle");
       const navLinks = document.querySelector(".nav-links");
-      if (navToggle) {
+      if (navToggle && navLinks) {
+        navToggle.setAttribute("aria-expanded", "false");
+        const closeMenu = () => {
+          navLinks.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "メニューを開く");
+        };
+        const openMenu = () => {
+          navLinks.classList.add("is-open");
+          navToggle.setAttribute("aria-expanded", "true");
+          navToggle.setAttribute("aria-label", "メニューを閉じる");
+        };
         navToggle.addEventListener("click", () => {
-          if (navLinks.style.display === "flex") {
-            navLinks.style.display = "";
-          } else {
-            navLinks.style.display = "flex";
-            navLinks.style.position = "absolute";
-            navLinks.style.top = "64px";
-            navLinks.style.left = "0";
-            navLinks.style.right = "0";
-            navLinks.style.flexDirection = "column";
-            navLinks.style.background = "var(--color-bg-soft)";
-            navLinks.style.color = "var(--color-text)";
-            navLinks.style.padding = "20px";
-            navLinks.style.borderBottom = "1px solid var(--color-border)";
-            navLinks.style.gap = "14px";
-          }
+          if (navLinks.classList.contains("is-open")) closeMenu();
+          else openMenu();
+        });
+        navLinks.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => closeMenu());
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && navLinks.classList.contains("is-open")) closeMenu();
         });
       }
 

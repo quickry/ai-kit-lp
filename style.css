@@ -1891,3 +1891,426 @@ summary:focus-visible,
     padding: 40px 20px 56px;
   }
 }
+
+/* ==========================================================
+   Mobile Optimization Pass — 2026-05-09 佐川睦男
+   坪井CEO指示「スマホでも見やすいように」
+   既存media query（900/768/640/420）はそのまま残し、追加で:
+   - 768pxタブレット縦の price-card 1列化
+   - 480px / 380pxの細やかな調整
+   - hero-titleのnowrap解除（小型iPhone対策）
+   - owner-avatar・doc-page余白・タップ領域改善
+   - 横スクロール最終防止
+   - faq summary・hero-title・cta系の可読性
+   ========================================================== */
+
+/* タップ領域の最低保証（iOS HIG 44x44pt・Material 48x48dp） */
+@media (max-width: 900px) {
+  .btn,
+  .nav-cta,
+  .nav-toggle,
+  .faq-item summary {
+    min-height: 44px;
+  }
+
+  /* nav-toggle 自体も44px化 */
+  .nav-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* タブレット縦（641-900px）の見え方改善 */
+@media (max-width: 900px) {
+  /* 価格カード3列は窮屈なので900px以下で1列化（既存はpricing-grid 1fr化のみ） */
+  .pricing-grid {
+    gap: 20px;
+  }
+
+  /* demo-grid 既存768pxで1列化 → タブレット縦でも余裕を持たせるため900pxで1列化 */
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* footer 4列 → 2列（既存）に gap・padding 微調整 */
+  .footer-top {
+    padding-bottom: 32px;
+  }
+
+  /* section内padding-soft */
+  .price-quick {
+    padding: 48px 0;
+  }
+}
+
+/* 768px以下: 一般的なスマホ全般 */
+@media (max-width: 768px) {
+  /* hero-title: nowrap外しを"準備"。各行のwhite-spaceは480pxで完全解除する */
+  .hero-title {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.25;
+  }
+
+  /* hero-desc文字を読みやすく */
+  .hero-desc {
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+
+  /* 大見出し全般・clamp下限を底上げ */
+  .section-title {
+    font-size: clamp(24px, 5.5vw, 36px);
+    line-height: 1.35;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* section-head bottom marginタイト化 */
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  /* nav-brand 文字小さめに */
+  .nav-brand {
+    font-size: 16px;
+  }
+
+  /* checklistを縦1列で詰める */
+  .checklist {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* includes・stats・futureもスマホで縦詰め改善 */
+  .includes-grid,
+  .stats-grid,
+  .future-list,
+  .steps {
+    gap: 14px;
+  }
+
+  /* card paddingを少し詰める */
+  .include-card,
+  .step,
+  .future-card,
+  .stat,
+  .ba-card {
+    padding: 24px 20px;
+  }
+
+  /* owner-card サイズ縮小 */
+  .owner-card {
+    padding: 28px 20px;
+  }
+
+  .owner-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* faq summary タップ領域確保 + 文字サイズ調整 */
+  .faq-item summary {
+    padding: 16px 18px;
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .faq-body {
+    padding: 0 18px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* doc-page legal/privacy 余白圧縮 */
+  .doc-page {
+    padding: 100px 0 64px;
+  }
+
+  /* doc-table モバイルで横スクロール許可（確実に表示崩れ防止） */
+  .doc-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .doc-table th,
+  .doc-table td {
+    padding: 12px 14px;
+    font-size: 13.5px;
+  }
+
+  .doc-table th {
+    width: auto;
+    white-space: nowrap;
+  }
+
+  /* hero CTA グループ縦詰め */
+  .hero-cta-group {
+    gap: 10px;
+  }
+
+  /* final-cta padding圧縮 */
+  .final-cta {
+    padding: 80px 0;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .final-cta-buttons .btn {
+    width: 100%;
+  }
+
+  /* β告知のpadding圧縮 */
+  #beta-notice .beta-notice-body {
+    padding: 24px 20px;
+  }
+
+  /* price-quick item内padding詰め */
+  .price-quick-item {
+    padding: 20px 18px;
+  }
+
+  /* container padding調整 */
+  .container {
+    padding: 0 18px;
+  }
+
+  /* nav-cta スマホでも控えめ表示（既存640pxでdisplay:noneだが念のため） */
+  .nav-cta {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* 480px以下: 小型スマホ・SE系 */
+@media (max-width: 480px) {
+  /* hero-title-line nowrap完全解除 — 小型画面では行が必ず収まるように折り返し許可 */
+  .hero-title-line {
+    white-space: normal;
+  }
+
+  .hero-title {
+    font-size: clamp(26px, 8vw, 34px);
+    line-height: 1.3;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-desc {
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+
+  /* section padding さらに圧縮 */
+  .section {
+    padding: 56px 0;
+  }
+
+  /* hero-overlay padding圧縮 */
+  .hero-inner-overlay {
+    padding: 28px 18px 56px;
+  }
+
+  /* 価格表示の文字サイズ調整 */
+  .price-amount .num {
+    font-size: 30px;
+  }
+
+  .pq-amount {
+    font-size: 20px;
+  }
+
+  /* eyebrow 文字小さめに */
+  .eyebrow {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  /* btn全般 詰め */
+  .btn {
+    padding: 13px 22px;
+    font-size: 14px;
+  }
+
+  .btn-lg {
+    padding: 15px 24px;
+    font-size: 15px;
+  }
+
+  /* container padding最小 */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* owner-avatar 小型でさらに縮小 */
+  .owner-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .owner-meta h4 {
+    font-size: 19px;
+  }
+
+  /* footer-top 1列（既存640pxで適用済み）の余白調整 */
+  .footer-top {
+    gap: 24px;
+  }
+
+  /* doc-title モバイルで縮小 */
+  .doc-title {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .doc-wrap h2 {
+    font-size: 19px;
+    margin: 28px 0 10px;
+  }
+
+  .doc-wrap h3 {
+    font-size: 16px;
+  }
+
+  .doc-wrap p,
+  .doc-wrap li {
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+
+  /* faq-item パディング微調整 */
+  .faq-item summary {
+    padding: 14px 16px;
+    font-size: 14.5px;
+  }
+
+  .faq-body {
+    padding: 0 16px 16px;
+    font-size: 13.5px;
+  }
+}
+
+/* 380px以下: 極小iPhone SE 1st (320px) / 古いAndroid Compact */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .section-title {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .nav-brand {
+    font-size: 15px;
+  }
+
+  .nav-brand-mark {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  /* 価格num最終調整 */
+  .price-amount .num {
+    font-size: 26px;
+  }
+
+  /* pricing-grid card padding最小 */
+  .price-card {
+    padding: 22px 18px;
+  }
+}
+
+/* 横スクロール最終防止（保険） */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* picture / img / video が親より広がらないことを保証 */
+.hero-bg-picture,
+.experience-bg-picture {
+  max-width: 100%;
+}
+
+/* 長いコードや英単語が画面外に押し出さない・hero-titleのaccent含む */
+.hero-title,
+.section-title,
+.faq-body,
+.doc-wrap,
+.price-name,
+.pq-name {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* code要素は長すぎる場合に折り返し */
+code {
+  word-break: break-all;
+}
+
+/* fixed header 分のスクロールoffset確保（アンカーリンクでヘッダー隠れ防止） */
+@media (max-width: 900px) {
+  :target {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ==========================================================
+   Mobile Nav Drawer (.nav-links.is-open)
+   2026-05-09 佐川睦男 — JS inline直書きから CSS クラス制御へ
+   既存 640px の `.nav-links { display: none }` と一貫させ、
+   .is-open 付与時のみフルワイドドロワーで展開
+   ========================================================== */
+@media (max-width: 640px) {
+  .nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--color-bg-soft);
+    color: var(--color-text);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 4px;
+    box-shadow: var(--shadow-md);
+    z-index: 99;
+  }
+
+  .nav-links.is-open li {
+    width: 100%;
+  }
+
+  .nav-links.is-open a {
+    display: block;
+    width: 100%;
+    padding: 12px 4px;
+    font-size: 15px;
+    color: var(--color-text);
+    border-bottom: 1px solid rgba(11, 42, 58, 0.06);
+  }
+
+  .nav-links.is-open li:last-child a {
+    border-bottom: none;
+  }
+}
